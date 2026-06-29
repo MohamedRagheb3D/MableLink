@@ -11,4 +11,4 @@ def find_maya_2024():
         if path.exists():
             return path
 
-    return None
+    return Nonepython

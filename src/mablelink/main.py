@@ -3,6 +3,7 @@ print("MAIN FILE IS RUNNING")
 from mablelink.application.engine import Engine
 from mablelink.version import APP_NAME, VERSION
 from mablelink.services.maya.finder import find_maya_2024
+from mablelink.services.maya.launcher import launch_maya
 
 
 def main():
@@ -18,6 +19,11 @@ def main():
 
     if maya:
         print(f"\nMaya Found:\n{maya}")
+
+        print("\nLaunching Maya...")
+
+        launch_maya()
+
     else:
         print("\nMaya 2024 Not Found.")
 
