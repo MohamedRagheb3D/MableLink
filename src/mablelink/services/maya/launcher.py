@@ -1,6 +1,7 @@
 import subprocess
 
 from mablelink.services.maya.finder import find_maya_2024
+from mablelink.services.maya.command import create_test_script
 
 
 def launch_maya():
@@ -9,6 +10,12 @@ def launch_maya():
     if maya is None:
         return False
 
-    subprocess.Popen([str(maya)])
+    script = create_test_script()
+
+    subprocess.Popen([
+        str(maya),
+        "-command",
+        f'python("exec(open(r\'{script}\').read())")'
+    ])
 
     return True
